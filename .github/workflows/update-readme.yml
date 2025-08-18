@@ -1,10 +1,15 @@
-name: Update README with sorted company links
+name: Update README with new folder links
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "*/**"   # Trigger on changes inside any top-level folder
   workflow_dispatch:   # Manual trigger
 
 permissions:
-  contents: write
+  contents: write   # Allow pushing changes
 
 jobs:
   update-readme:
