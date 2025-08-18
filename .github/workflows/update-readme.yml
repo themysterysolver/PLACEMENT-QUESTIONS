@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "*/"   # trigger only if a top-level folder is added
+      - "*/**"   # trigger only if a top-level folder is added
 
 jobs:
   update-readme:
