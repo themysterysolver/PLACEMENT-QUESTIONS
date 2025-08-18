@@ -7,12 +7,14 @@
 
 # INFORMATION
 
-- If the company whose FOLDER is not in the existing repo ,you could create your own folder with company name begginng with a caps.
-- Learn basics of MARKDOWN from the given (link)[],write the markdown file .
+- Fork the repo,make your changes then rise a PR using the rules below.
+- If the company whose `FOLDER` is not in the existing repo ,you could create your own folder with company name begginng with a caps.
+- Create `filenam`e as *company_name-BLOG<next number to the the latest number>* eg. `IDFFC-Blog1.md`
+- Learn basics of `MARKDOWN` from the given [link](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax),write the markdown file .
 - Make an individual pull request for each suggestion.
 - Start the description with a capital and end with a full stop/period.
 - Check your spelling and grammar.
-- PR Should be raised with a proper commit message and description.
+- *PR* Should be raised with a proper commit message and description.
 
 # TEMPLATE
 
@@ -60,7 +62,7 @@ Explain how you approached the problem. Mention key observations, edge cases, an
 // Your solution here
  > ***ANYONE CAN CONRIBUTE! LET'S BUILD A COMMUNITY!!**
 ```
-- Here is an example from [IDFC]()
+- Here is an example from [IDFC](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/blob/main/IDFC/IDFC-Review1.md)
 
 > **PS:**  Your question and explanation need not 100% accurate,since this is a open-source community many will overview and add details if they have seen similar questions.
 
