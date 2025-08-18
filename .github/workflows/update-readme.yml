@@ -5,11 +5,11 @@ on:
     branches:
       - main
     paths:
-      - "*/"   # trigger if a top-level folder is added or changed
-  workflow_dispatch:   # manual trigger
+      - "*/**"   # Trigger on changes inside any top-level folder
+  workflow_dispatch:   # Manual trigger
 
 permissions:
-  contents: write   # allow pushing changes
+  contents: write   # Allow pushing changes
 
 jobs:
   update-readme:
@@ -26,32 +26,27 @@ jobs:
           after=$(awk '/### COMPANIES/{found=1;next} found{print}' README.md)
 
           # Get all top-level directories (ignore .github)
-          dirs=$(ls -d */ | grep -v ".github" | sed 's#/##' | sort)
+          dirs=$(ls -d */ | grep -v ".github" | sed 's#/##' | sort -u)
 
-          # Only add directories not already in README
+          # Rebuild company list alphabetically
           company_list=""
           for d in $dirs; do
-            if ! grep -q "\[${d}\]" README.md; then
-              company_list="${company_list}- [${d}](./${d})\n"
-            fi
+            company_list="${company_list}- [${d}](./${d})\n"
           done
 
-          # Rewrite README only if there are new folders
-          if [ -n "$company_list" ]; then
-            {
-              echo "$before"
-              echo "### COMPANIES"
-              echo
-              printf "%b" "$company_list"
-              echo "$after"
-            } > README.md
-          fi
+          # Rewrite README without duplicates
+          {
+            echo "$before"
+            echo "### COMPANIES"
+            echo
+            printf "%b" "$company_list"
+            echo "$after"
+          } > README.md
 
       - name: Commit and push changes
-        if: success() && steps.update-readme.outputs.changed == 'true' || always()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "chore: auto-update README with new folder link" || echo "No changes to commit"
+          git commit -m "chore: auto-update README with new folder links" || echo "No changes to commit"
           git push
