@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "*/**"   # Trigger on changes inside any top-level folder
+      - "!README.md"  # Don't trigger on README changes themselves
   workflow_dispatch:   # Manual trigger
 
 permissions:
@@ -18,35 +19,57 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Needed to check git diff
+
+      - name: Get changed folders
+        id: changed-folders
+        run: |
+          # Get list of all top-level directories except .github and .
+          all_dirs=$(find . -maxdepth 1 -type d ! -name ".github" ! -name "." ! -name ".git" | sed 's|./||' | sort)
+          
+          # Get list of changed files in the push
+          changed_files=$(git diff --name-only HEAD~1 HEAD)
+          
+          # Check if any files were added in existing or new directories
+          dirs_to_update=""
+          for dir in $all_dirs; do
+            if echo "$changed_files" | grep -q "^$dir/"; then
+              dirs_to_update="$dirs_to_update $dir"
+            fi
+          done
+          
+          # If we have changes in folders, proceed
+          if [ -n "$dirs_to_update" ]; then
+            echo "folders_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "folders_changed=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Update README
+        if: steps.changed-folders.outputs.folders_changed == 'true'
         run: |
-          # Split README into 2 parts: before COMPANIES and after COMPANIES
-          before=$(awk '/### COMPANIES/{exit} {print}' README.md)
-          after=$(awk '/### COMPANIES/{found=1;next} found{print}' README.md)
+          # Extract the content before and after the COMPANIES section
+          before=$(sed '/### COMPANIES/q' README.md | head -n -1)
+          after=$(sed -n '/### COMPANIES/,$p' README.md | tail -n +3)
 
-          # Get all top-level directories (ignore .github)
-          dirs=$(find . -maxdepth 1 -type d ! -name ".github" ! -name "." | sed 's|./||' | sort -u)
+          # Get all top-level directories (ignore .github, ., .git)
+          dirs=$(find . -maxdepth 1 -type d ! -name ".github" ! -name "." ! -name ".git" | sed 's|./||' | sort)
 
-          # Rebuild company list alphabetically
-          company_list=""
+          # Build new company list
+          company_list="### COMPANIES\n\n"
           while IFS= read -r d; do
-            company_list="${company_list}- [${d}](./${d})"$'\n'
+            company_list="${company_list}- [${d}](${d})\n"
           done <<< "$dirs"
 
-          # Rewrite README without duplicates
-          {
-            echo "$before"
-            echo "### COMPANIES"
-            echo
-            printf "%b" "$company_list"
-            echo "$after"
-          } > README.md
+          # Combine everything
+          echo -e "${before}\n${company_list}\n${after}" > README.md
 
       - name: Commit and push changes
+        if: steps.changed-folders.outputs.folders_changed == 'true'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "chore: auto-update README with new folder links" || echo "No changes to commit"
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: auto-update README with new folder links"
           git push
