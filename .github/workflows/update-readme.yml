@@ -1,0 +1,48 @@
+name: Update README with new folder links
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "*/"   # trigger only if a top-level folder is added
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Update README
+        run: |
+          # Split README into 2 parts: before COMPANIES and after COMPANIES
+          before=$(awk '/### COMPANIES/{exit} {print}' README.md)
+          after=$(awk '/### COMPANIES/{found=1;next} found{print}' README.md)
+
+          # Get all top-level directories (ignore .github)
+          dirs=$(ls -d */ | grep -v ".github" | sed 's#/##' | sort)
+
+          # Rebuild company list alphabetically
+          company_list=""
+          for d in $dirs; do
+            company_list="${company_list}- [${d}](./${d})\n"
+          done
+
+          # Rewrite README
+          {
+            echo "$before"
+            echo "### COMPANIES"
+            echo
+            printf "$company_list"
+            echo "$after"
+          } > README.md
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: auto-update README with new folder link" || echo "No changes to commit"
+          git push
