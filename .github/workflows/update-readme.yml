@@ -26,13 +26,13 @@ jobs:
           after=$(awk '/### COMPANIES/{found=1;next} found{print}' README.md)
 
           # Get all top-level directories (ignore .github)
-          dirs=$(ls -d */ | grep -v ".github" | sed 's#/##' | sort -u)
+          dirs=$(find . -maxdepth 1 -type d ! -name ".github" ! -name "." | sed 's|./||' | sort -u)
 
           # Rebuild company list alphabetically
           company_list=""
-          for d in $dirs; do
-            company_list="${company_list}- [${d}](./${d})\n"
-          done
+          while IFS= read -r d; do
+            company_list="${company_list}- [${d}](./${d})"$'\n'
+          done <<< "$dirs"
 
           # Rewrite README without duplicates
           {
