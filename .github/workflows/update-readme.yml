@@ -22,51 +22,58 @@ jobs:
         with:
           fetch-depth: 0  # Needed to check git diff
 
-      - name: Get changed folders
-        id: changed-folders
+      - name: Get new folders
+        id: get-folders
         run: |
-          # Get list of all top-level directories except .github and .
+          # Get list of all current top-level directories
           all_dirs=$(find . -maxdepth 1 -type d ! -name ".github" ! -name "." ! -name ".git" | sed 's|./||' | sort)
           
-          # Get list of changed files in the push
-          changed_files=$(git diff --name-only HEAD~1 HEAD)
+          # Get list from README
+          readme_dirs=$(grep -oP '(?<=\- \[).*(?=\]\()' README.md || true)
           
-          # Check if any files were added in existing or new directories
-          dirs_to_update=""
+          # Find new directories not in README
+          new_dirs=""
           for dir in $all_dirs; do
-            if echo "$changed_files" | grep -q "^$dir/"; then
-              dirs_to_update="$dirs_to_update $dir"
+            if ! echo "$readme_dirs" | grep -qx "$dir"; then
+              new_dirs="$new_dirs $dir"
             fi
           done
           
-          # If we have changes in folders, proceed
-          if [ -n "$dirs_to_update" ]; then
-            echo "folders_changed=true" >> $GITHUB_OUTPUT
+          # Output results
+          echo "new_dirs=${new_dirs}" >> $GITHUB_OUTPUT
+          if [ -n "$new_dirs" ]; then
+            echo "has_new_dirs=true" >> $GITHUB_OUTPUT
           else
-            echo "folders_changed=false" >> $GITHUB_OUTPUT
+            echo "has_new_dirs=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Update README
-        if: steps.changed-folders.outputs.folders_changed == 'true'
+        if: steps.get-folders.outputs.has_new_dirs == 'true'
         run: |
-          # Extract the content before and after the COMPANIES section
-          before=$(sed '/### COMPANIES/q' README.md | head -n -1)
-          after=$(sed -n '/### COMPANIES/,$p' README.md | tail -n +3)
-
-          # Get all top-level directories (ignore .github, ., .git)
-          dirs=$(find . -maxdepth 1 -type d ! -name ".github" ! -name "." ! -name ".git" | sed 's|./||' | sort)
-
-          # Build new company list
-          company_list="### COMPANIES\n\n"
-          while IFS= read -r d; do
-            company_list="${company_list}- [${d}](${d})\n"
-          done <<< "$dirs"
-
-          # Combine everything
-          echo -e "${before}\n${company_list}\n${after}" > README.md
+          # Get new directories
+          new_dirs="${{ steps.get-folders.outputs.new_dirs }}"
+          
+          # Add each new directory to README
+          for dir in $new_dirs; do
+            # Insert new folder link in alphabetical order
+            awk -v dir="$dir" '
+              /^- \[/ {
+                if (dir < $2 && !added) {
+                  print "- [" dir "](" dir ")"
+                  added=1
+                }
+                print
+                next
+              }
+              1
+              END {
+                if (!added) print "- [" dir "](" dir ")"
+              }
+            ' README.md > README.tmp && mv README.tmp README.md
+          done
 
       - name: Commit and push changes
-        if: steps.changed-folders.outputs.folders_changed == 'true'
+        if: steps.get-folders.outputs.has_new_dirs == 'true'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
