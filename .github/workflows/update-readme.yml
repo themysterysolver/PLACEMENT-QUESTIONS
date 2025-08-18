@@ -34,14 +34,22 @@ jobs:
             company_list="${company_list}- [${d}](./${d})\n"
           done
 
-          # Rewrite README
+          # Build new README content
+          new_readme=$(mktemp)
           {
             echo "$before"
             echo "### COMPANIES"
             echo
             printf "%b" "$company_list"
             echo "$after"
-          } > README.md
+          } > "$new_readme"
+
+          # Replace README.md only if different
+          if ! diff -q "$new_readme" README.md > /dev/null; then
+            mv "$new_readme" README.md
+          else
+            echo "✅ README.md already up to date, no changes made."
+          fi
 
       - name: Commit and push changes
         run: |
