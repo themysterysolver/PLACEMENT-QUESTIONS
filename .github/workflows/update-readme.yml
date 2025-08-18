@@ -1,16 +1,10 @@
-name: Update README with new folder links
+name: Update README with sorted company links
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - "*/**"   # Trigger on changes inside any top-level folder
-      - "!README.md"  # Don't trigger on README changes themselves
   workflow_dispatch:   # Manual trigger
 
 permissions:
-  contents: write   # Allow pushing changes
+  contents: write
 
 jobs:
   update-readme:
@@ -20,63 +14,35 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Needed to check git diff
+          fetch-depth: 0
 
-      - name: Get new folders
+      - name: Get all top-level folders
         id: get-folders
         run: |
-          # Get list of all current top-level directories
+          # Get all top-level directories (ignore .github, .git)
           all_dirs=$(find . -maxdepth 1 -type d ! -name ".github" ! -name "." ! -name ".git" | sed 's|./||' | sort)
-          
-          # Get list from README
-          readme_dirs=$(grep -oP '(?<=\- \[).*(?=\]\()' README.md || true)
-          
-          # Find new directories not in README
-          new_dirs=""
-          for dir in $all_dirs; do
-            if ! echo "$readme_dirs" | grep -qx "$dir"; then
-              new_dirs="$new_dirs $dir"
-            fi
-          done
-          
-          # Output results
-          echo "new_dirs=${new_dirs}" >> $GITHUB_OUTPUT
-          if [ -n "$new_dirs" ]; then
-            echo "has_new_dirs=true" >> $GITHUB_OUTPUT
-          else
-            echo "has_new_dirs=false" >> $GITHUB_OUTPUT
-          fi
+          echo "all_dirs=$all_dirs" >> $GITHUB_OUTPUT
 
-      - name: Update README
-        if: steps.get-folders.outputs.has_new_dirs == 'true'
+      - name: Update README with sorted companies
         run: |
-          # Get new directories
-          new_dirs="${{ steps.get-folders.outputs.new_dirs }}"
-          
-          # Add each new directory to README
-          for dir in $new_dirs; do
-            # Insert new folder link in alphabetical order
-            awk -v dir="$dir" '
-              /^- \[/ {
-                if (dir < $2 && !added) {
-                  print "- [" dir "](" dir ")"
-                  added=1
-                }
-                print
-                next
-              }
-              1
-              END {
-                if (!added) print "- [" dir "](" dir ")"
-              }
-            ' README.md > README.tmp && mv README.tmp README.md
+          # Extract content before the companies list
+          awk '/^- \[/{exit} {print}' README.md > README.tmp
+
+          # Add sorted company list
+          echo >> README.tmp
+          echo "### COMPANIES" >> README.tmp
+          echo >> README.tmp
+          for dir in ${{ steps.get-folders.outputs.all_dirs }}; do
+            echo "- [${dir}](./${dir})" >> README.tmp
           done
+
+          # Replace README.md
+          mv README.tmp README.md
 
       - name: Commit and push changes
-        if: steps.get-folders.outputs.has_new_dirs == 'true'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git diff --quiet && git diff --staged --quiet || git commit -m "chore: auto-update README with new folder links"
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: update README with sorted company links"
           git push
