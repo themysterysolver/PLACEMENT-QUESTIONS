@@ -5,7 +5,3 @@
 ### COMPANIES
 
 - [IDFC](./IDFC)
-
-- [IDFC](./IDFC)
-
-- [IDFC](./IDFC)
