@@ -5,12 +5,12 @@ on:
     branches:
       - main
     paths:
-      - "*/**"   # Trigger on changes inside any top-level folder
-      - "!README.md"  # Ignore README.md changes
-  workflow_dispatch:   # Manual trigger
+      - "*/**"
+      - "!README.md"
+  workflow_dispatch:
 
 permissions:
-  contents: write   # Allow pushing changes
+  contents: write
 
 jobs:
   update-readme:
@@ -27,8 +27,10 @@ jobs:
         run: |
           # Get all top-level directories (ignore .github, .git, .)
           all_dirs=$(find . -maxdepth 1 -type d ! -name ".github" ! -name "." ! -name ".git" | sed 's|./||' | sort)
-          # Quote properly for GitHub Actions
-          echo "all_dirs=\"$all_dirs\"" >> $GITHUB_OUTPUT
+          # Properly format for GitHub Actions output
+          echo "all_dirs<<EOF" >> $GITHUB_OUTPUT
+          echo "$all_dirs" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Update README with sorted companies
         run: |
