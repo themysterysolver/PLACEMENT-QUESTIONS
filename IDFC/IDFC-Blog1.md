@@ -185,5 +185,7 @@ public class spiral {
 
 ```
 
+- For the 2nd question I just returned `return s[::-1]`
+
 
 > ***ANYONE CAN CONRIBUTE! LET'S BUILD A COMMUNITY!!***
