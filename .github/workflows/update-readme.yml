@@ -1,16 +1,16 @@
 name: Update README with sorted company links
 
 on:
-  workflow_dispatch:   # Manual trigger
   push:
     branches:
       - main
     paths:
-      - "*/**"       # Trigger on changes inside any top-level folder
-      - "!README.md" # Ignore changes to README itself
+      - "*/**"   # Trigger on changes inside any top-level folder
+      - "!README.md"  # Ignore README.md changes
+  workflow_dispatch:   # Manual trigger
 
 permissions:
-  contents: write
+  contents: write   # Allow pushing changes
 
 jobs:
   update-readme:
@@ -27,23 +27,21 @@ jobs:
         run: |
           # Get all top-level directories (ignore .github, .git, .)
           all_dirs=$(find . -maxdepth 1 -type d ! -name ".github" ! -name "." ! -name ".git" | sed 's|./||' | sort)
-          echo "all_dirs=$all_dirs" >> $GITHUB_OUTPUT
+          # Quote properly for GitHub Actions
+          echo "all_dirs=\"$all_dirs\"" >> $GITHUB_OUTPUT
 
       - name: Update README with sorted companies
         run: |
-          # Extract content before the first company list
+          # Extract content before the first company link
           awk '/^- \[/{exit} {print}' README.md > README.tmp
 
-          # Add sorted company list
+          # Add sorted company list header
           echo >> README.tmp
           echo "### COMPANIES" >> README.tmp
           echo >> README.tmp
 
-          # Read all_dirs into array
-          IFS=' ' read -r -a folders <<< "${{ steps.get-folders.outputs.all_dirs }}"
-
-          # Loop over array safely
-          for dir in "${folders[@]}"; do
+          # Add all directories in sorted order
+          for dir in ${{ steps.get-folders.outputs.all_dirs }}; do
             echo "- [${dir}](./${dir})" >> README.tmp
           done
 
