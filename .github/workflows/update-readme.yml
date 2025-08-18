@@ -6,7 +6,10 @@ on:
       - main
     paths:
       - "*/**"   # trigger if a top-level folder or files inside it change
-  workflow_dispatch:   # 👈 manual trigger
+  workflow_dispatch:   # manual trigger
+
+permissions:
+  contents: write   # 👈 allow pushing changes
 
 jobs:
   update-readme:
