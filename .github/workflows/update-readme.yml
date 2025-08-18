@@ -5,7 +5,8 @@ on:
     branches:
       - main
     paths:
-      - "*/**"   # trigger only if a top-level folder is added
+      - "*/**"   # trigger if a top-level folder or files inside it change
+  workflow_dispatch:   # 👈 manual trigger
 
 jobs:
   update-readme:
@@ -35,7 +36,7 @@ jobs:
             echo "$before"
             echo "### COMPANIES"
             echo
-            printf "$company_list"
+            printf "%b" "$company_list"
             echo "$after"
           } > README.md
 
