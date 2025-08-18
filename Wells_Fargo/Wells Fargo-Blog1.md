@@ -42,4 +42,4 @@ Explain how you approached the problem. Mention key observations, edge cases, an
 
 ```language
 // Your solution here
-> ***ANYONE CAN CONRIBUTE! LET'S BUILD A COMMUNITY!!**
+> ***ANYONE CAN CONRIBUTE! LET'S BUILD A COMMUNITY!!***
