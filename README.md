@@ -8,3 +8,6 @@
 - [IDFC](./IDFC)
 - [Wells_Fargo](./Wells_Fargo)
 
+- [.git](./.git)
+- [IDFC](./IDFC)
+- [Wells_Fargo](./Wells_Fargo)
