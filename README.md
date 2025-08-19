@@ -4,8 +4,4 @@
 - Make use of the valuable questions and information and get placed in you dream company.
 ### COMPANIES
 
-- [IDFC](IDFC)
-- [Wells_Fargo](Wells_Fargo)
-
-- [IDFC](IDFC)
-- [Wells_Fargo](Wells_Fargo)
+> In progress for display❌
