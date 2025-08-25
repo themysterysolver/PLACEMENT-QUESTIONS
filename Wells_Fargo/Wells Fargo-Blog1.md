@@ -13,33 +13,153 @@
 
 ---
 
-## Question 1: *[Question Title]*  
+## Question 1: *Maximising the energy*  
 **Description:**  
-Write the complete problem statement here.  
+- You are given an array initial Energy of sue a where aach element represents the starting energy of a particle in space. 
+- The energy of particle in reduced by a value called the barier, if the energy becomes less than zero, it is set to zero.
+- Your task is to find the maximum possible value of the barrier such that the total of all finalEnergy values is greater than or equal to a given threshold `th`
+- `Return:` an integer `int` maximum integer value of the barrier such that sum of energies of all the particles is greater than or equal to `th`.
+- The **maximum value of barrier** for which the sum of final energies of all particles is greater than or equal to `th` is **3**.
+  
+**Examples & Constraints:**  
+- Example 1:
+  - **n = 5**
+  - `inititialEnergy = [4,8,7,1,2]`
+  - **threshold = 9** 
+
+```
+  Test barrier values of **0 through 4**.
+| barrier to test | initialEnergy - barrier | sum of final energies |
+|-----------------|-------------------------|-----------------------|
+| 0               | 4 8 7 1 2               | 22                    |
+| 1               | 3 7 6 0 1               | 17                    |
+| 2               | 2 6 5 -1 0              | 13                    |
+| 3               | 1 5 4 -2 -1             | 10                    |
+| 4               | 0 4 3 -3 -2             | 7                     |
+```
+> *These columns are calculated for each value in initialEnergy.  
+> Negative values are treated as 0 in the sums.*
+
+
+- Example 2:
+    - `n = 4` and `inititalEnergy = [5,2,13,10]`
+```
+| barrier to test | initialEnergy - barrier | sum of final energies |
+|-----------------|-------------------------|-----------------------|
+| 6               | -1 -4 7 4               | 11                    |
+| 7               | -2 -5 6 3               | 9                     |
+| 8               | -3 -6 5 2               | 7                     | 
+```
+ - ***result = 7***
+
+- Constraints:
+    - $2<=n<=10^5$
+    - $1<=inititalEnergy[i]<=10^9$
+    - $1<=th<=10^4$
+    - The sum of initialEnergy > th
+
+**Tags:**  *binary search,array*
+
+**Similar Questions:**  
+- [1283. Find the Smallest Divisor Given a Threshold](https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/description/)
+
+---
+
+## Question 2: *Modified Knapsack problem*  
+
+Sure 👍 Here’s your question, **cleanly retyped** without the formatting glitches:
+
+---
+
+### Problem Statement
+
+**Description:**  
+- The **Knapsack problem** is a well-known problem in the field of computer programming and problem-solving. To make it more interesting, the interviewer uses a modified version of the problem.
+- You are given **n items**, where:
+- The weight of the *i*-th item is $2^i$.
+- The cost of the *i*-th item is `cost[i]`.
+- You need to find the **minimum amount of money** required to purchase items such that the combined weight of the purchased items is **at least `minWeight`**.
+- Complete the function `getMinimumCost`.
+```python
+def getMinimumCost(cost: list[int], minWeight: int) -> int:
+```
+- `int cost[n]`: the cost of each item
+- `int minWeight`: the minimum combined weight of the items
+- `Return`: `long int`: the minimum amount needed to purchase the items
+
+---
+
 
 **Examples & Constraints:**  
-- Example 1: . 
-- Example 2: ...  
-- Constraints: ...  
 
-**Tags:**  
-(e.g., Arrays, Dynamic Programming, Graphs, Greedy, etc.) <if possible> 
+- Example 1
+```
+n = 5
+cost = [2, 5, 7, 11, 25]
+minWeight = 26
+```
 
-**Similar Questions (if any):**  
-- [LeetCode #XXX – Problem Name](https://leetcode.com/problems/...)  
-- [GeeksforGeeks – Problem Name](https://www.geeksforgeeks.org/...)  
-- [Codeforces/CodeChef Link]  
+ - One of the optimal ways to purchase the items is:
+     - Buy 2 units of the 0th item.
+     - Buy 3 units of the 3rd item.
+
+ - **Total cost** = $2 * 2 + 3 * 11 = 37$
+ - **Total weight** = $(2 * 2^0) + (3 * 2^3) = 26$, which is at least `minWeight`.
+ - Ans is `37` 
+
+
+- Example 2:
+  - **n = 5**
+  - `inititialEnergy = [10,9,8,10]`
+  - **minWeight = 2** 
+  - `Ans` is `20`
+  - It is optimal to buy 2 units of item 3(0-based) ..... explanation continues
+
+
+- Constraints:
+    - $1<=n<=30$
+    - $1<=COST[i]<=10^9$
+    - $1<=minWeight<=10^9$
+
+
+**Tags:**  *?*
+
+**Similar Questions:**  
+- `?`
 
 ---
+
 
 ### Thought Process  
-Explain how you approached the problem. Mention key observations, edge cases, and possible optimizations.  
 
 ---
 
-### Solution  
-*(Keep your code and explanation separate from the problem statement)*  
+### Solution - 1
 
-```language
-// Your solution here
+- I was able to solve the `1st` question because I have already solved the similar question which was a major key.
+- They are almost the SAME question.
+- The idea here is that instead of doing for all the barrier values we can do using bs ,bcoz of constraints.
+
+```
+def getMaxBarrier(initialEnergy, th):
+    def sum_after_barrier(barrier):
+        return sum(max(0, e - barrier) for e in initialEnergy)
+    
+    low, high = 0, max(initialEnergy)
+    ans = 0
+    
+    while low <= high:
+        mid = (low + high) // 2
+        if sum_after_barrier(mid) >= th:
+            ans = mid      
+            low = mid + 1
+        else:
+            high = mid - 1    
+    
+    return ans
+```
+> I am clueless about the 2nd DSA question but the SQL question was dooable.
+
+<br>
+
 > ***ANYONE CAN CONRIBUTE! LET'S BUILD A COMMUNITY!!***
