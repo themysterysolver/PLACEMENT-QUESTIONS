@@ -1,0 +1,64 @@
+name: tester
+on:
+  push:        
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Store README section
+        run: |
+          {
+            echo "README_SECTION<<EOF"
+            echo "### 📌 Placement Questions"
+            echo
+            echo "- Read the [\`contributing.md\`](./contributing.md) to learn how you can expand our community."
+            echo "- Explore the collection of valuable questions and information to help you get placed in your dream company."
+            echo 
+            echo "### COMPANIES"
+            echo "EOF"
+          } >> $GITHUB_ENV
+
+      - name: Get repo directories
+        run: |
+          touch temp.md
+          dirs=$(ls -d */ | sed 's#/##')
+          for i in $dirs; do 
+            echo "- [$i](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/$i)" >> temp.md
+          done 
+          
+          {
+            echo "COMPANIES_LIST<<EOF"
+            cat temp.md
+            echo "EOF"
+          } >> $GITHUB_ENV
+
+      - name: Combine into README.md
+        run: |
+          echo "$README_SECTION" > README.md
+          echo "$COMPANIES_LIST" >> README.md
+          cat README.md   # just to check content in logs
+
+      - name: Commit README.md to repo (only if changed)
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Check for changes
+          if git diff --quiet README.md; then
+            echo "No changes in README.md, skipping commit."
+          else
+            git add README.md
+            git commit -m "Update README.md with companies list"
+            git push
+          fi
