@@ -59,9 +59,10 @@ $None$
 
 ---
 
-### Solution  
-*(Keep your code and explanation separate from the problem statement)*  
+### Solution
 
-```language
-// Your solution here
+$None$
+
+---
+
 > ***ANYONE CAN CONRIBUTE! LET'S BUILD A COMMUNITY!!**
