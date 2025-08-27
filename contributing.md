@@ -16,6 +16,14 @@
 - Check your spelling and grammar.
 - *PR* Should be raised with a proper commit message and description.
 
+> **COMMON MISTAKES:** while creating a new folder,some contributors add it in the main folder. Instead you should do create a path like this `/<company_name>/<Company_name-Blogx.md>`
+
+- `GOOD Practise`: 📌
+ - code as per the template.
+ - *Atleast* give `1 example` per problem
+ - ***Seperate your question space and answer space.*** ie) write the questions and it's examples followed by explantion with tags. After completeing all the questions write solution or your thought process.
+ - This repo emphasise on `DSA` but other explantions and experience is appreciated!!
+
 # TEMPLATE
 
  ```markdown []
@@ -58,10 +66,11 @@ Explain how you approached the problem. Mention key observations, edge cases, an
 ### Solution  
 *(Keep your code and explanation separate from the problem statement)*  
 
-```language
+
 // Your solution here
- > ***ANYONE CAN CONRIBUTE! LET'S BUILD A COMMUNITY!!**
+ > ***ANYONE CAN CONRIBUTE! LET'S BUILD A COMMUNITY!!***
 ```
+
 - Here is an example from [IDFC](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/blob/main/IDFC/IDFC-Review1.md)
 
 > **PS:**  Your question and explanation need not 100% accurate,since this is a open-source community many will overview and add details if they have seen similar questions.
