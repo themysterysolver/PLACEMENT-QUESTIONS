@@ -4,6 +4,7 @@
 - Explore the collection of valuable questions and information to help you get placed in your dream company.
 
 ### COMPANIES
+- [Apple](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Apple)
 - [Goldman_Sachs](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Goldman_Sachs)
 - [IDFC](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/IDFC)
 - [SAP_Labs](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/SAP_Labs)
