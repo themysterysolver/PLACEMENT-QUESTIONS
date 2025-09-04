@@ -31,7 +31,7 @@
 
 **Year:** YYYY  
 **Type:** Placement / Internship  
-
+**Role:** SDE/QE/PE/etc
 ---
 
 ## Online Assessment Overview  
