@@ -55,6 +55,8 @@
 ```
 **Tags:**  `Math`,`Matrix`,`Simulation`
 
+[Hackerrank Challenge link](https://www.hackerrank.com/contests/placement-questions-mit/challenges/spiral-matrix-85)
+
 ---
 
 ## Question 2: *Reverse the String*
@@ -74,9 +76,8 @@
   
 **Tags:** `String`, `Two-Pointer`, `Simulation`
 
----
+[Hackerrank Challenge link](https://www.hackerrank.com/contests/placement-questions-mit/challenges/reverse-a-string-108-1)
 
-## Hackerrank contest for practice: https://www.hackerrank.com/contests/idfc25-set-1/
 ---
 ## Thought Process  
 ### Solution  
