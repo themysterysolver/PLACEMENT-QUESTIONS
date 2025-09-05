@@ -74,7 +74,9 @@
   
 **Tags:** `String`, `Two-Pointer`, `Simulation`
 
+---
 
+## Hackerrank contest for practice: https://www.hackerrank.com/contests/idfc25-set-1/
 ---
 ## Thought Process  
 ### Solution  
