@@ -54,8 +54,26 @@ Write the complete problem statement here.
 **Similar Questions (if any):**  
 - [LeetCode #XXX – Problem Name](https://leetcode.com/problems/...)  
 - [GeeksforGeeks – Problem Name](https://www.geeksforgeeks.org/...)  
+- [Codeforces/CodeChef Link]
+
+## Question 2: *[Question Title]*  
+**Description:**  
+Write the complete problem statement here.  
+
+**Examples & Constraints:**  
+- Example 1: ...  
+- Example 2: ...  
+- Constraints: ...  
+
+**Tags:**  
+(e.g., Arrays, Dynamic Programming, Graphs, Greedy, etc.) <if possible> 
+
+**Similar Questions (if any):**  
+- [LeetCode #XXX – Problem Name](https://leetcode.com/problems/...)  
+- [GeeksforGeeks – Problem Name](https://www.geeksforgeeks.org/...)  
 - [Codeforces/CodeChef Link]  
 
+---
 ---
 
 ### Thought Process  
