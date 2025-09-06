@@ -1,4 +1,4 @@
-# Company Name
+# Apple
 
 **Year:** 2025  
 **Type:** Placement  
