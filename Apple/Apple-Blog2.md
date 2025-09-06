@@ -30,11 +30,11 @@
 - *Eg:* `[1,1,2,2,3,4,5,3,4,5]`
   - The 1st one(id) indicates the person with id one reaches the hotel
   - The 2nd one(id) indicates the person left the the seat.
-- A person can occupy a seat if available ,else
+- A person can occupy a **seat** if *available* ,else
 - wait for the seats to be empty or get bored and leave the queue.
 - You are also given `cost` which maps to the people's id to the index of cost.
 - If a customer is already visited, he is charged atmost once.But he can still occupy the seats. 
-- Your task it to calculate the total cost the person earned
+- Your task it to calculate the total cost the *hotel earned* by `EOD`
   
 **Examples & Constraints:**  
 - Example 1: *available* = 2  people = [1,2,1,2,3,0,2,1,4,3,0,1,4] cost = [10,20,30,40,50]
@@ -84,6 +84,21 @@
 
 
 ---
+
+## Question 2: *Score board of a table tennis game*  
+**Description:**  
+
+- 
+  
+**Examples & Constraints:**  
+- Example 1:
+- Example 2:
+- Example 3: 
+- Constraints:
+
+
+**Tags:**  `counting`,`simulation`,`hash table`
+
 
 
 
