@@ -63,13 +63,11 @@
 **Similar Questions:**  
 - [1283. Find the Smallest Divisor Given a Threshold](https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/description/)
 
+[Hackerrank challenge link](https://www.hackerrank.com/contests/placement-questions-mit/challenges/maximize-energy-1)
+
 ---
 
 ## Question 2: *Modified Knapsack problem*  
-
-Sure 👍 Here’s your question, **cleanly retyped** without the formatting glitches:
-
----
 
 ### Problem Statement
 
@@ -109,11 +107,11 @@ minWeight = 26
 
 
 - Example 2:
-  - **n = 5**
-  - `inititialEnergy = [10,9,8,10]`
+  - **n = 4**
+  - `cost = [10,9,8,10]`
   - **minWeight = 2** 
-  - `Ans` is `20`
-  - It is optimal to buy 2 units of item 3(0-based) ..... explanation continues
+  - `Ans` is `8`
+  - It is optimal to buy 1 units of item 2(0-based)
 
 
 - Constraints:
@@ -122,10 +120,10 @@ minWeight = 26
     - $1<=minWeight<=10^9$
 
 
-**Tags:**  *?*
+**Tags:**  *Unbounded knapsack, Dynamic Programming*
 
 **Similar Questions:**  
-- `?`
+- [GeeksforGeeks - Minimum Cost to Fill Given Weight in a Bag](https://www.geeksforgeeks.org/problems/minimum-cost-to-fill-given-weight-in-a-bag1956/1)
 
 ---
 
