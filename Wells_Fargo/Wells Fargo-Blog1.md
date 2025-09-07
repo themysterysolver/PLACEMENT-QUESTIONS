@@ -110,8 +110,8 @@ minWeight = 26
   - **n = 4**
   - `cost = [10,9,8,10]`
   - **minWeight = 2** 
-  - `Ans` is `20`
-  - It is optimal to buy 2 units of item 3(0-based) ..... explanation continues
+  - `Ans` is `8`
+  - It is optimal to buy 1 units of item 2(0-based)
 
 
 - Constraints:
