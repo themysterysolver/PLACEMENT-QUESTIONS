@@ -5,7 +5,7 @@
 
 ### COMPANIES
 - [Apple](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Apple)
-- [Athenahealthcare](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Athenahealthcare)
+- [AthenaHealth](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/AthenaHealth)
 - [Goldman_Sachs](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Goldman_Sachs)
 - [IDFC](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/IDFC)
 - [SAP_Labs](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/SAP_Labs)
