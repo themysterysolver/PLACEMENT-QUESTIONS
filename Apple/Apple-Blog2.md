@@ -87,15 +87,16 @@
 
 ## Question 2: *Score board of a tennis game*  
 **Description:**  
+<img width="904" height="664" alt="image" src="https://github.com/user-attachments/assets/60dfd01a-cb2c-4497-94aa-e13b1682f890" />
 
 - Tennis game follows the below rules
 - The 1st win is considered as `15` points, the second one is `30` and the third one is `40`.
-- A player wins if he is in 
+- A player wins if he wins a game after his third win. Any win after `40` for a player is considered win!
 - A player is said to be in,
-    - **Advantage:** 
-    - **Duece:**
-    - **Game:**
-    - If he has scored more than `40 points`
+    - **Advantage:** when a player gains a point from deuece it's an advantage.
+    - **Duece:** When both the player have same points(40-40)
+    - **Game/wins:**  once the game reaches duece, the player who scores two more points than the opponent wins the game. 
+    - If he has scored atleast `40 points`
 - You are given list `score` which consist of number of wins be each player.
 - You should return the `points table` as per the diagram given above.
   
@@ -103,6 +104,9 @@
 - Example 1:  score = [`P1`] , result = "P1 15" 
 - Example 2:  score = [`P1`,`P2`,`P2`] , result = "P1 15 - P2 30" 
 - Example 3:  score = [`P1`,`P2`] result = "15a"
+- Example 4: score = [`P1`,`P2`,`P2`,`P1`,`P1`] result = "30a"
+- Example 5: score = [`P1`,`P1`,`P1`,`P1`] result = "P1 Wins"
+- Example 6: score = [`P1`,`P1`,`P1`,`P2`,`P2`,`P2`] result = "DEUCE"
 - Constraints:
     - $1 \leq score.length \leq 20 $
 
