@@ -85,17 +85,26 @@
 
 ---
 
-## Question 2: *Score board of a table tennis game*  
+## Question 2: *Score board of a tennis game*  
 **Description:**  
 
-- 
+- Tennis game follows the below rules
+- The 1st win is considered as `15` points, the second one is `30` and the third one is `40`.
+- A player wins if he is in 
+- A player is said to be in,
+    - **Advantage:** 
+    - **Duece:**
+    - **Game:**
+    - If he has scored more than `40 points`
+- You are given list `score` which consist of number of wins be each player.
+- You should return the `points table` as per the diagram given above.
   
 **Examples & Constraints:**  
-- Example 1:
-- Example 2:
-- Example 3: 
+- Example 1:  score = [`P1`] , result = "P1 15" 
+- Example 2:  score = [`P1`,`P2`,`P2`] , result = "P1 15 - P2 30" 
+- Example 3:  score = [`P1`,`P2`] result = "15a"
 - Constraints:
-
+    - $1 \leq score.length \leq 20 $
 
 **Tags:**  `counting`,`simulation`,`hash table`
 
@@ -111,5 +120,4 @@ Explain how you approached the problem. Mention key observations, edge cases, an
 *(Keep your code and explanation separate from the problem statement)*  
 
 
-// Your solution here
 > ***ANYONE CAN CONRIBUTE! LET'S BUILD A COMMUNITY!!***
