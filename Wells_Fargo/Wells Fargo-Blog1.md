@@ -63,7 +63,10 @@
 **Similar Questions:**  
 - [1283. Find the Smallest Divisor Given a Threshold](https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/description/)
 - [1300. Sum of Mutated Array Closest to Target](https://leetcode.com/problems/sum-of-mutated-array-closest-to-target/)
-[Hackerrank challenge link](https://www.hackerrank.com/contests/placement-questions-mit/challenges/maximize-energy-1)
+
+<br>
+
+  [Hackerrank challenge link](https://www.hackerrank.com/contests/placement-questions-mit/challenges/maximize-energy-1)
 
 ---
 
