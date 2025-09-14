@@ -83,6 +83,13 @@ named `stockPrices` where `stockPrices[i]` denotes the price of the stock in the
 - For the *1stq* I found divisors for each number.I had the idea to store the previously computed count in `pre` to quick access.
 - For the *2ndq* Discontinuity is handled by hash.By default each day has one,this is the base case.
 
+
+Approach 2 for question 1:
+
+- Divisors always come in pairs. If $a * b = n$, both $a$ and $b$ are divisors of $n$, unless $a = b$, which means $n$ is a perfect square.
+- Any $n$ has atleast two divisors - 1 and itself. So, for $n$ to have exactly 3 divisors, it must be a square number and that too square of a prime.
+- So, it is enough to count the number of squares of primes less than $key[i]$.
+- Or equivalently, it is enough to count the number of primes less than $\sqrt{key[i]}$.
 ---
 
 ### Solution 1
