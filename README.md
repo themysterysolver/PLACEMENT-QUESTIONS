@@ -11,4 +11,5 @@
 - [SAP_Labs](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/SAP_Labs)
 - [Tekion](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Tekion)
 - [VISA](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/VISA)
+- [Verizon](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Verizon)
 - [Wells_Fargo](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Wells_Fargo)
