@@ -86,6 +86,7 @@
 - For the `1stQ` I just simulated the problem. But lots of hidden testcases failed. I am giving my solution below,if u could debug,and find new approach let me know.
   -  I found my mistake!
 - For the `2ndQ` since the constraint is small I generated all the primes and checked if they end with `k` ,and I did the operation. Here also I failed,if you could fix it,pls do!
+  - Fixed my code ,you could check the wrong code in the git log named `ab1b2b6c0fa1e9550fc76869f93911d1211a2d12`, try `git show` or search it in the commit history.
 
 ---
 
@@ -135,30 +136,26 @@ bishop(3,7,2,1,1)
 
 ```
 def primeEndsWithK(N,K):
-    isPrime = [True]*1001
-    isPrime[0] = isPrime[1] = False
-    #Sieve of Eratosthenes
-    for i in range(2,int(len(isPrime)**0.5)+1):
-        if isPrime[i]:
-            for j in range(i*i,len(isPrime),i):
-                isPrime[j] = False
+    def isPrime(num):
+        if num < 2:
+            return False
+        for i in range(2,int(num**0.5)+1):
+            if num%i == 0:
+                return False
+        return True
     
-    prime = [str(i) for i in range(len(isPrime)) if isPrime[i]]
-    #print(prime)
-    ans = []
-    k = str(K)
     count = 0
-    for p in prime:
-        if p[-1] == k:
-            ans.append(int(p))
+    i = 2
+    ans = []
+    while count!=N:
+        if isPrime(i) and str(i)[-1] == str(K):
             count+=1
-            if count == N:
-                break
+            ans.append(i)
+        i+=1
     ans.extend([2,5])
     ans.sort()
-    #display
-    for r in ans:
-        print(r,end = ' ')
+    for p in ans:
+        print(p,end=' ')
     print()
         
 primeEndsWithK(10,1)
