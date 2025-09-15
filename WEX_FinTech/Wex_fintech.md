@@ -1,8 +1,8 @@
 # WEX Fintech
 
-**Year:** 2025
-**Type:** Placement
-**Role:** SDE
+- **Year:** 2025
+- **Type:** Placement
+- **Role:** SDE
 
 ---
 
@@ -28,12 +28,14 @@
   -  Given a `m = 5` , `n = 6` , `k = 2` , `x  = 2` , `y = 2`
   -  The answer is `15`
 
-  <img width="293" height="344" alt="image" src="https://github.com/user-attachments/assets/42440a10-d689-4bf7-94ad-ec4ca299dcc5" />
+  <img width="318" height="272" alt="image" src="https://github.com/user-attachments/assets/7107eccf-ea61-46d4-bd74-738994060538" />
+
   
 - Example 2:
- - Given a `m = 3` , `n = 7` , `k = 2` , `x  = 2` , `y = 2`
+ - Given a `m = 3` , `n = 7` , `k = 2` , `x  = 1` , `y = 1`
  - The answer is `7`
-  <img width="379" height="181" alt="image" src="https://github.com/user-attachments/assets/3e311f10-141a-4ab2-baac-c67da2957f00" />
+  <img width="380" height="198" alt="image" src="https://github.com/user-attachments/assets/c685b41a-2d92-4265-b375-ec60755d184f" />
+
    
 - Constraints:
   - $1 \le m,n  \le 10^3$
@@ -46,32 +48,122 @@
 **Similar Questions:**  
 - [2596. Check Knight Tour Configuration](https://leetcode.com/problems/check-knight-tour-configuration/description/)
 
-## Question 2: *[Question Title]*  
+## Question 2: *Prime which ends with K*  
 **Description:**  
-Write the complete problem statement here.  
+
+ - you are given `N` and `K`.
+ - You should find the first `N` prime numbers that ends with the digit `K`.
+ - Add 2,5 to this N numbers and print the resultant array in ascending order.
 
 **Examples & Constraints:**  
-- Example 1: ...  
-- Example 2: ...  
-- Constraints: ...  
+- Example 1:
+  - Given N = 5, K = 3
+  - 3, 13, 23, 43, 53 ends with 3
+  - After the final operation the ans would be `2 3 5 13 23 43 53`
+- Example 2:
+  - Given N = 15, K = 7
+  - 7, 17, 37, 47, 67, 97, 107, 127, 137, 157, 167, 197, 227, 257, 277
+  -  After the final operation the ans would be `2 5 7 17 37 47 67 97 107 127 137 157 167 197 227 257 277`
+- Example 3:
+  - Given N = 10, K = 1
+  - 11 31 41 61 71 101 131 151 181 191
+  - After the final operation the ans would be `2 5 11 31 41 61 71 101 131 151 181 191`
+- Constraints:
+  -  $1 \le N \le 1001$
+  -  $1 K takes the value ***1,3,7***
 
-**Tags:**  
-(e.g., Arrays, Dynamic Programming, Graphs, Greedy, etc.) <if possible> 
+**Tags:**  `String` , `math` , `sorting`
+ 
 
 **Similar Questions (if any):**  
-- [LeetCode #XXX – Problem Name](https://leetcode.com/problems/...)  
-- [GeeksforGeeks – Problem Name](https://www.geeksforgeeks.org/...)  
-- [Codeforces/CodeChef Link]  
+- [204. Count Primes](https://leetcode.com/problems/count-primes/description/)
+
+> NOTE: For both the questions,make sure you just use print as final result.Don't need to return anything. If anything in stdop other than answer,it would be considered wrong.
 
 ---
 
 ### Thought Process  
-Explain how you approached the problem. Mention key observations, edge cases, and possible optimizations.  
+- For the `1stQ` I just simulated the problem. But lots of hidden testcases failed. I am giving my solution below,if u could debug,and find new approach let me know.
+  -  I found my mistake!
+- For the `2ndQ` since the constraint is small I generated all the primes and checked if they end with `k` ,and I did the operation. Here also I failed,if you could fix it,pls do!
 
 ---
 
 ### Solution - 1  
 
+```
+from collections import deque
 
-// Your solution here
+def bishop(m,n,k,x,y):
+    q = deque([(x,y)])
+    visited = set()
+    visited.add((x,y)) #missed this in OA!
+    values = 1#already given!
+    
+    for _ in range(k):
+        l = len(q)
+        for _ in range(l):
+            x,y = q.popleft()
+            for dx,dy in [(1,1),(-1,-1),(-1,1),(1,-1)]:
+                nx,ny = x,y
+                for _ in range(m):
+                    nx,ny = nx+dx,ny+dy
+                    if nx<1 or ny<1 or nx>m or ny>n or (nx,ny) in visited:
+                        continue
+                    else:
+                        values+=1
+                        visited.add((nx,ny))
+                        q.append((nx,ny))
+            #print(q)
+    def dis(key):
+        matrix = [[0]*(n+1) for _ in range(m+1)]
+        for x,y in key:
+            matrix[x][y] = 1
+        for row in matrix:
+            print(row)
+        print('---------')
+    #print(sorted(list(visited)))
+    #dis(visited)
+    print(values)
+    
+bishop(5,6,2,2,2)
+bishop(3,7,2,1,1)
+    
+```
+
+### Solution - 2
+
+```
+def primeEndsWithK(N,K):
+    isPrime = [True]*1001
+    isPrime[0] = isPrime[1] = False
+    #Sieve of Eratosthenes
+    for i in range(2,int(len(isPrime)**0.5)+1):
+        if isPrime[i]:
+            for j in range(i*i,len(isPrime),i):
+                isPrime[j] = False
+    
+    prime = [str(i) for i in range(len(isPrime)) if isPrime[i]]
+    #print(prime)
+    ans = []
+    k = str(K)
+    count = 0
+    for p in prime:
+        if p[-1] == k:
+            ans.append(int(p))
+            count+=1
+            if count == N:
+                break
+    ans.extend([2,5])
+    ans.sort()
+    #display
+    for r in ans:
+        print(r,end = ' ')
+    print()
+        
+primeEndsWithK(10,1)
+primeEndsWithK(5,3)
+```
+
+
 > ***ANYONE CAN CONRIBUTE! LET'S BUILD A COMMUNITY!!***
