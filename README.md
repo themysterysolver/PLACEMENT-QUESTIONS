@@ -13,4 +13,5 @@
 - [Tekion](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Tekion)
 - [VISA](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/VISA)
 - [Verizon](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Verizon)
+- [WEX_FinTech](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/WEX_FinTech)
 - [Wells_Fargo](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Wells_Fargo)
