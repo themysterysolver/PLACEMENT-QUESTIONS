@@ -10,6 +10,7 @@
 # INFORMATION
 
 - Fork the repo,make your changes then rise a PR using the rules below.
+- checkout to  `interview-experience` branch.
 - If the company whose `FOLDER` is not in the existing repo ,you could create your own folder with company name begginng with a caps.
 - ***Write your blog in word and convert it into PDF and save as per the below format.***
 - Create `filename` as *company_name-BLOG<next number to the the latest number>* eg. `IDFC-Blog1.pdf`
@@ -34,3 +35,5 @@
 - what do u think you could have done better?
 
 ---
+
+> FUN FACT: This is an orphan branch, which means it has no commit history from the parent branch. It’s completely new!
