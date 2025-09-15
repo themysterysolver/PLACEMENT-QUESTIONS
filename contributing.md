@@ -12,7 +12,7 @@
 - Fork the repo,make your changes then rise a PR using the rules below.
 - If the company whose `FOLDER` is not in the existing repo ,you could create your own folder with company name begginng with a caps.
 - ***Write your blog in word and convert it into PDF and save as per the below format.***
-- Create `filenam`e as *company_name-BLOG<next number to the the latest number>* eg. `IDFFC-Blog1.pdf`
+- Create `filename` as *company_name-BLOG<next number to the the latest number>* eg. `IDFC-Blog1.pdf`
 - Make an individual pull request for each suggestion.
 - Start the description with a capital and end with a full stop/period.
 - Check your spelling and grammar.
