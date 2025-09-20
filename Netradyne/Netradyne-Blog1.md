@@ -52,13 +52,16 @@
   ```
   10
   113000
+  BOOK 1 1
   AVAILABLE TICKETS 1
-  IS BOOKED 11
-  CANCEL
-  AVAILABLE VICKETS 1
-  25 BOOKED 11
-  B001-4
-  15 BOOKED 15
+  IS BOOKED 1 1
+  CANCEL 1 1
+  AVAILABLE TICKETS 1
+  IS BOOKED 1 1
+  BOOK 1 3
+  BOOK 1 4
+  1S BOOKED 1 5
+  CANCEL 1 5
     
   ```
   - Output
@@ -76,7 +79,7 @@
   ```
   - Here, the number of quenes are, Q = 10
   - *Query 1*
-    - Inputs BOOK 11
+    - Inputs BOOK 1 1
     - Outputs Booked Successfully!
     - Explanations Customer 1 successfully booked a ticket for Movie Available tickets for Movie 1 were reduced to 99
   - *Query 2*
@@ -89,7 +92,7 @@
     - Explanations Confirmation that Customer 1 has tooked a ticket for
       Movie 1
   - *Query 4*:
-      - Inputs CANCEL 11
+      - Inputs CANCEL 1 1
       - Outputs Canceled Successfully!
       - Explanations Customer 1 successfully canceled the booking for Movie 1 Available tickets for Movie 1 were increased to 100
   - *Query 5*:
@@ -97,23 +100,23 @@
       - Outputs Available ticket count is 100
       - Explanations The system reports 100 available tickets for Movie 1 after cancellation
   - *Query 6*:
-    - Inputs IS BOOKED 11
+    - Inputs IS BOOKED 1 1
     - Outputs Ticket isn't booked!
     - Explanations. Confirmation that Customer I's booking for Movie 1 is successfully canceled
   - Query 7:
-    - Inputs: BOOK 13.
+    - Inputs: BOOK 1 3.
     - Outputs Booked Successfully!
     - Explanations: Customer 1 successfully booked a ticket for Movie 3
   - Query B:
-      - Inputs BOOK 14
+      - Inputs BOOK 1 4
       - Outputs Booked Successfully!
       - Explanations Customer 1 successfully booked a ticket for Movie 4
   - Query 9:
-      - Inputs IS BOOKED 15
+      - Inputs IS BOOKED 1 5
       - Outputs Ticket isn't booked!
       - Explanations Venfication that customer 1 hasn't booked a ticket for Movie 5
   - Query 10:
-    - Inputs: CANCEL 15
+    - Inputs: CANCEL 1 5
     - Outputs Couldn't cancell
     - Explanations Attempting to cancel a non-booked ticket for Movie 5 by Customer 1, but it fails.
 > Note:Your code must be able to print the sample output from the provided sample input. However, your code is run against multiple hidden test cases. Therefore, your code must pass these hidden test cases to solve the problem statement.
@@ -160,7 +163,7 @@
 
 ```python3 []
 
-from collections import detauitdict
+from collections import detaultdict
 
 class MovieTiket:
   def __init__(self):
@@ -168,7 +171,7 @@ class MovieTiket:
     self.movieCount = dict()
   def book(self,X,Y): #X-userID and Y-movieID
     if Y in self.movieCount:
-      if X in self.movieUser[Y] or self.movieCount[Y]!= 0 :
+      if X in self.movieUser[Y] or self.movieCount[Y]==0 :
          return "Ticket isn't booked!"
       self.movieUser[Y].add(X)
       self.movieCount[Y]-=1
