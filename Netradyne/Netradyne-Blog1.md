@@ -168,17 +168,17 @@ class MovieTiket:
     self.movieCount = dict()
   def book(self,X,Y): #X-userID and Y-movieID
     if Y in self.movieCount:
-      if X in self.movieUser[Y] or self.movieCount[Y] l = 0 :
+      if X in self.movieUser[Y] or self.movieCount[Y]!= 0 :
          return "Ticket isn't booked!"
       self.movieUser[Y].add(X)
-      self.movieCount [Y]-=1
+      self.movieCount[Y]-=1
       return "Booked Successfully!"
     else:
-      self.movieCount [Y] = 99
+      self.movieCount[Y] = 99
       self.movieUser[Y].add(X)
       return "Booked Successfully!"
   def cancel(self,X,Y):
-    if X in self.movieUser [Y]:
+    if X in self.movieUser[Y]:
       self.movieUser[Y].remove(X)
       self.movieCount [Y]+=1:
       return "Canceled Successfully!"
