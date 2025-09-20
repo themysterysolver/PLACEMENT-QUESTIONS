@@ -138,7 +138,7 @@
 **Tags:**  `stack`
 
 **Similar Questions (if any):**  
-- [Decode the string]((https://www.geeksforgeeks.org/problems/decode-the-string2444/1))  
+- [Decode the string](https://www.geeksforgeeks.org/problems/decode-the-string2444/1)  
 
 ---
 
