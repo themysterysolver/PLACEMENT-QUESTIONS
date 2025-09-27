@@ -8,6 +8,7 @@
 - [AthenaHealth](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/AthenaHealth)
 - [Goldman_Sachs](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Goldman_Sachs)
 - [IDFC](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/IDFC)
+- [NVIDIA](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/NVIDIA)
 - [Netradyne](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Netradyne)
 - [Oracle](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Oracle)
 - [SAP_Labs](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/SAP_Labs)
