@@ -48,6 +48,7 @@
 **Similar Questions (if any):**  
 - [Power of 2](https://leetcode.com/problems/power-of-two/description/?envType=daily-question&envId=2025-08-09)
 
+
 ## Question 2: *Lexicographically smallest beautiful string*  
 **Description:**  
 - A non-empty binary string is said to be ***Good susbtring*** used,
@@ -71,6 +72,9 @@
 
 **Tags:**  `string`
 
+**Similar Questions (if any):**  
+- [Special binary string](https://leetcode.com/problems/special-binary-string/description/?difficulty=EASY&page=1)
+  
 ---
 
 ### Thought Process  
