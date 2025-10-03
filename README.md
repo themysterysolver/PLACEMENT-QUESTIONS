@@ -4,6 +4,7 @@
 - Explore the collection of valuable questions and information to help you get placed in your dream company.
 
 ### COMPANIES
+- [AMAZON](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/AMAZON)
 - [Apple](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Apple)
 - [AthenaHealth](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/AthenaHealth)
 - [Goldman_Sachs](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Goldman_Sachs)
