@@ -88,7 +88,7 @@
 
 **Examples & Constraints:**  
 - Example 1:
-  - There are n = 5 servers and their computational power = [3,4,5,1,6,2]
+  - There are n = 5 servers and their computational power = [3,4,1,6,2]
     <img width="474" height="77" alt="image" src="https://github.com/user-attachments/assets/c171e85e-b2e4-48b7-9b19-219ce0314e2c" />
   - Add 3 units to the subarray(2,4) and 4 units to the subarray(4,4). The final arrangement to the servers is [3,4,4,9,9]. The answer is 3+4 = 7.
 
