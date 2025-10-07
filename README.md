@@ -13,6 +13,7 @@
 - [Netradyne](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Netradyne)
 - [Oracle](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Oracle)
 - [SAP_Labs](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/SAP_Labs)
+- [Samsung](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Samsung)
 - [Tekion](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Tekion)
 - [VISA](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/VISA)
 - [Verizon](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Verizon)
