@@ -11,6 +11,7 @@
 - [IDFC](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/IDFC)
 - [NVIDIA](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/NVIDIA)
 - [Netradyne](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Netradyne)
+- [Optum](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Optum)
 - [Oracle](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Oracle)
 - [SAP_Labs](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/SAP_Labs)
 - [Samsung](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Samsung)
