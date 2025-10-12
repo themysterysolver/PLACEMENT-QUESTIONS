@@ -20,7 +20,13 @@
 - Now we have to implemeent the above features in the tech stack choosen above.
 - The IDE was very user friendly,it was similar to `VS code`. They had terminal to run commands.
 - They also had an `AI bot` whihc the game changer here. They told us we can use how muchever we want to use this bot to achieve the end goal. It's name is `COSMO`,it 
-was a really strong AI assitance. 
+was a really strong AI assitance.
+- Topics and things you should know,
+  - basics of react,nodesjs and app structre
+  - How to work on terminal and bash
+  - curl,tree,npm,sudo commands
+  - How to CRUD,how it works.
+  - How to debug!
 
 ---
 
@@ -44,25 +50,82 @@ Last but not least, this is an Al co-piloted assessment and Cosmo (found in the 
 - Filter articles by tags to discover trending topics.
 - We've populated the database with 2 users and 7 articles which are owned by the Author user
 
+```
 authorexample.com 1234
 teallengexample.com-121234
+```
 
-- See README.md from the IDE for details about project structure and the database, migrations, and seeded data
-Requirements
-- You will be Implimenting four progressive feastuees, each bulling on the previos
-- 
+#### Requirements
+
+- You will be implementing four progressive features, each building on the previous one:
+
+### 📌Tier 1: Add Read-only API Endpoint for Article View Count
+
+- Implement a simple counter that tracks how many times each article has been viewed.
+
+<br>
+
+**Acceptance Criteria**
+- Add a viewCount integer attribute to the Article model with default value of 0.
+- Create an API route called /articles/:slug/viewed to increment the counter when an article is viewed
+- The viewCount field should be returned with Article data
+- Backend only: No Ul changes required for this tier
+
+### 📌Tier 2: Display Article View Count in UI
+
+- Build on Tier 1 functionality by showing the view count to users.
+
+<br>
+
+**Acceptance Criteria**
+- Every time an article is viewed, call the API created when working on Tier 1 requirements to update the value by 1
+Add a simple icon and display the viewCount value (e.g..
+42 views" below the article title.
+- Frontend only. No backend changes required for this tier.
+
+### 📌Tier 3: Add Article Categories
+- Implement a Article categories separate from tags
+
+<br>
+
+**Acceptance Criteria**
+
+- Create a new Category model with attributes for name and description.
+- Define an association between Article and Category models.
+- Seed the Category table with some categories (Travel, Animals, etc)
+- Create an API endpoints to list all cafegories.
+- Update the article creation/edit form in the Ul to fetch the categories and include a category dropdown.
+
+### 📌Tier 4: Implement Article Recommendations
+
+- Create a simple recommendation endpoint based on categories, tags, and viewCount Display recommendations with the full Article view
+
+<br>
+
+**Acceptance Criteria**
+
+- Create a new API endpoint that retums 3-5 recommended articles based on
+  -  Articles in the same category
+  - Articles sharing the most tags with the current article
+  - Sort the list by most viewed (via viewCount)
+- Add a 'Recommended Reading" section to the bottom of the article page in the UI
+- Display the recommended articles with their tities and author names.
 
 ---
 
 ### Thought Process  
 
-Explain how you approached the problem. Mention key observations, edge cases, and possible optimizations.  
+- First I read the problem statement and doing this without an aissitance would be impossible.So I did the below thing,
+  - I am aware of a command called `tree` , I used this to `COSMO` for better directory understanding and the files it should change.
+  - I then prompted the entire requirements and asked it to give logics and code for each tier in parts.
+  - For backend I tested it using `curl`.
+  - Unfortunately localhost wasn't working so I wasn't able to check my `UI` part. (my friends faced the same issue)
+
+> PS: Always have the server running,use multiple terminals,if u chnage anything on DB restart it.
 
 
 ---
 
-### Solution  
-*(Keep your code and explanation separate from the problem statement)*  
 
 
 // Your solution here
