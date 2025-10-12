@@ -7,6 +7,7 @@
 - [Amazon](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Amazon)
 - [Apple](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Apple)
 - [AthenaHealth](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/AthenaHealth)
+- [Citi_India](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Citi_India)
 - [Goldman_Sachs](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Goldman_Sachs)
 - [IDFC](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/IDFC)
 - [NVIDIA](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/NVIDIA)
