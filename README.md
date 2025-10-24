@@ -10,6 +10,8 @@
 - [Citi_India](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Citi_India)
 - [Goldman_Sachs](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Goldman_Sachs)
 - [IDFC](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/IDFC)
+- [NCR](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/NCR)
+- [Voyix](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Voyix)
 - [NVIDIA](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/NVIDIA)
 - [Netradyne](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Netradyne)
 - [Optum](https://github.com/themysterysolver/PLACEMENT-QUESTIONS/tree/main/Optum)
