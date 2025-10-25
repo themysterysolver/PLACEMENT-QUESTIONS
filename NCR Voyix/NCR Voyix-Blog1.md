@@ -15,16 +15,17 @@
 ## Question 1: *Find palindrome*  
 **Description:**  
 Given a string `s` with lower case english alphabets and `?`.
-Return a palindromic string of `s` after filling the missing charcaters(`?`)
+Return a palindromic string of `s` after filling the missing charcaters(`?`). You can swap any characters in `s`.
 
 **Examples & Constraints:**  
 
-- Example 1: `s=a??ba`
-  - The resultant s is `ababa`  
-- Example 2:  
+- Example 1: `s=a??b?a`
+  - The resultant s is `abaaba` is one possible answer. 
+- Example 2:
+    
 - Constraints:   
 
-**Tags:**  `string` , `stack`
+**Tags:**  `string` , `counting`
 
 **Similar Questions (if any):**  
  - None
